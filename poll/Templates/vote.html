@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+		<br><br>
+			<form action="/vote/{{questions.id}}/" method = "POST">
+			{% csrf_token %}
+				<p> {{questions}} </p>
+				
+				<input type="radio" name="type" id="rd1" value="option1" autocomplete="off"/>
+				<label for="rd1">{{questions.option1}}</label><br/>
+				<input type="radio" name="type" id="rd2" value="option2" autocomplete="off"/>
+				<label for="rd2">{{questions.option2}}</label><br/>
+				<input type="radio" name="type" id="rd3" value="option3" autocomplete="off"/>
+				<label for="rd3">{{questions.option3}}</label><br/>
+
+				<!--<p> <label><input type="radio" name="type" value="option1" autocomplete="off"> {{questions.option1}} </label></p>
+				<p> <label><input type="radio" name="type" value="option2" autocomplete="off"> {{questions.option2}} </label></p>
+				<p> <label><input type="radio" name="type" value="option3" autocomplete="off"> {{questions.option3}} </label></p>-->
+								
+				<button type="submit" class="btn btn-outline-warning"> Vote </button>
+			</form>
+	
+{% endblock %}

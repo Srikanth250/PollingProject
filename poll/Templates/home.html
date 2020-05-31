@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block body %}
+	
+	<br>
+	<h1> Available Polls </h1>
+	{% for question in questions %}
+	<div class="myclass" style="border:1px dashed grey;padding:4px;">
+	<div class="row">
+		<div class="col-lg-6">
+	
+			<P>	 {{question}} </p>
+	
+		</div>
+		<div class="col-lg-3">
+			<a href="/vote/{{question.id}}" class="btn btn-primary"> Vote </a>
+		</div>
+		<div class="col-lg-3">
+			<a href="/result/{{question.id}}" class="btn btn-outline-primary"> View Results </a>
+		</div>
+	</div>
+	</div>
+	<br>
+	{% endfor %}
+	
+{% endblock %}
